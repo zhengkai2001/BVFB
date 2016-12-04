@@ -1,0 +1,102 @@
+<% provide(:title, "Donate") %>
+
+<div id="main" class="row">
+  <h1>Donate</h1>
+
+  <div class="panel panel-default">
+    <%= form_for(@donation, url: donate_path) do |f| %>
+        <div id="div_donate" class="panel-body">
+          <div id="div_donation" class="panel panel-default">
+            <div class="panel-heading">
+              <h2>Donation's Information</h2>
+            </div>
+
+            <div class="panel-body">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <%= f.label :donation_date %>
+                  <%= f.date_field(:donation_date) %>
+                  <!--<label for="donation_date">Date</label>-->
+                  <!--<input type="text" class="form-control" name="donation_date" id="donation_date"-->
+                  <!--placeholder="10/31/2016">-->
+                </div>
+
+                <div class="form-group col-md-6">
+                  <%= f.label :food_type %>
+                  <%= f.select(:food_type, %w(Food Money Both)) %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <%= f.label :food_detail %>
+                  <%= f.text_field :food_detail, class: 'form-control', placeholder: 'OREO' %>
+                </div>
+                <div class="form-group col-md-6">
+                  <%= f.label :money_type %>
+                  <%= f.select(:money_type, %w(None Cash Check)) %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <%= f.label :money_amount %>
+                  <%= f.text_field :money_amount, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="div-donor" class="panel panel-default">
+            <div class="panel-heading">
+              <h2>Donor's Information</h2>
+            </div>
+
+            <div class="panel-body">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <%= f.label 'Name of Origination / Individual' %>
+                  <%= f.text_field :name, class: 'form-control' %>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <%= f.label :address %>
+                  <%= f.text_field :address, class: 'form-control' %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <%= f.label :city %>
+                  <%= f.text_field :city, class: 'form-control' %>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <%= f.label :state %>
+                  <%= f.text_field :state, class: 'form-control' %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <%= f.label :zip %>
+                  <%= f.text_field :zip, class: 'form-control' %>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <%= f.label :email %>
+                  <%= f.email_field :email, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-offset-3 col-md-6">
+              <%= f.submit "Submit", class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<% provide(:title, "Donations") %>
+
+<h1>All Donations</h1>
+
+<div>
+  <table class="table table-striped" id="donations">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Donation Date</th>
+      <th>Food Type</th>
+      <th>Food Detail</th>
+      <th>Food Weight</th>
+      <th>Money Type</th>
+      <th>Money Amount</th>
+    </tr>
+
+    <% @donations.each do |donation| %>
+        <tr>
+          <td><%= donation.name %></td>
+          <td><%= donation.email %></td>
+          <td><%= donation.address %></td>
+          <td><%= donation.city %></td>
+          <td><%= donation.state %></td>
+          <td><%= donation.zip %></td>
+          <td><%= donation.donation_date %></td>
+          <td><%= donation.food_type %></td>
+          <td><%= donation.food_detail %></td>
+          <td><%= donation.food_weight %></td>
+          <td><%= donation.money_type %></td>
+          <td><%= donation.money_amount %></td>
+        </tr>
+    <% end %>
+  </table>
+
+  <%= link_to "Export to CSV", donations_path(:csv => true) %>
+
+</div>
