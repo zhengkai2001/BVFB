@@ -34,6 +34,10 @@ class DonationsController < ApplicationController
     @donation = Donation.find(id)
 
     DonationMailer.send_receipt(@donation).deliver_now
+
+    flash[:success] = "Successfully sent receipt to #{@donation.email}!"
+
+    redirect_to donation_path(@donation)
   end
 
   private

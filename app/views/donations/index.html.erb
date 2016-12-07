@@ -17,7 +17,8 @@
       <th>Food Weight</th>
       <th>Money Type</th>
       <th>Money Amount</th>
-      <th>Action</th>
+      <th></th>
+      <th></th>
     </tr>
 
     <% @donations.each do |donation| %>
@@ -34,7 +35,8 @@
           <td><%= donation.food_weight %></td>
           <td><%= donation.money_type %></td>
           <td><%= donation.money_amount %></td>
-          <td><%= link_to 'Send Receipt Email', donation_path(donation) %></td>
+          <td><%= link_to 'Details', donation_path(donation) %></td>
+          <td><%= link_to 'Send Receipt', send_receipt_path(donation) %></td>
         </tr>
     <% end %>
   </table>
