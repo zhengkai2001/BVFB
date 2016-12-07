@@ -1,4 +1,4 @@
-<% provide(:title, "Donations") %>
+<% provide(:title, 'All Donations') %>
 
 <h1>All Donations</h1>
 
@@ -7,7 +7,6 @@
     <tr>
       <th>Name</th>
       <th>Email</th>
-      <th></th>
       <th>Address</th>
       <th>City</th>
       <th>State</th>
@@ -18,13 +17,13 @@
       <th>Food Weight</th>
       <th>Money Type</th>
       <th>Money Amount</th>
+      <th>Action</th>
     </tr>
 
     <% @donations.each do |donation| %>
         <tr>
           <td><%= donation.name %></td>
           <td><%= donation.email %></td>
-          <td></td>
           <td><%= donation.address %></td>
           <td><%= donation.city %></td>
           <td><%= donation.state %></td>
@@ -35,6 +34,7 @@
           <td><%= donation.food_weight %></td>
           <td><%= donation.money_type %></td>
           <td><%= donation.money_amount %></td>
+          <td><%= link_to 'Send Receipt Email', donation_path(donation) %></td>
         </tr>
     <% end %>
   </table>

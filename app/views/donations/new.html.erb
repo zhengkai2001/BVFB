@@ -16,14 +16,11 @@
                 <div class="form-group col-md-6">
                   <%= f.label :donation_date %>
                   <%= f.date_field(:donation_date) %>
-                  <!--<label for="donation_date">Date</label>-->
-                  <!--<input type="text" class="form-control" name="donation_date" id="donation_date"-->
-                  <!--placeholder="10/31/2016">-->
                 </div>
 
                 <div class="form-group col-md-6">
                   <%= f.label :food_type %>
-                  <%= f.select(:food_type, %w(Food Money Both)) %>
+                  <%= f.text_field :food_type, class: 'form-control', placeholder: 'Biscuits' %>
                 </div>
               </div>
 
@@ -55,7 +52,7 @@
             <div class="panel-body">
               <div class="row">
                 <div class="form-group col-md-6">
-                  <%= f.label 'Name of Origination / Individual' %>
+                  <%= f.label 'Name of Organization / Individual' %>
                   <%= f.text_field :name, class: 'form-control' %>
                 </div>
 

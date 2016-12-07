@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   get '/donations', to: 'donations#index'
   get '/donate', to: 'donations#new'
   post '/donate', to: 'donations#create'
-  # resources :donations
+  resources :donations
+
+  get '/donations/:id/send_receipt', to: 'donations#send_receipt', as: :send_receipt
 
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'

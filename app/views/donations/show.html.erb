@@ -1,0 +1,40 @@
+<% provide(:title, 'Donation Details') %>
+
+<h1>Donation Details</h1>
+
+<div>
+  <table class="table table-striped" id="donations">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Donation Date</th>
+      <th>Food Type</th>
+      <th>Food Detail</th>
+      <th>Food Weight</th>
+      <th>Money Type</th>
+      <th>Money Amount</th>
+      <th>Action</th>
+    </tr>
+
+    <tr>
+      <td><%= @donation.name %></td>
+      <td><%= @donation.email %></td>
+      <td><%= @donation.address %></td>
+      <td><%= @donation.city %></td>
+      <td><%= @donation.state %></td>
+      <td><%= @donation.zip %></td>
+      <td><%= @donation.donation_date %></td>
+      <td><%= @donation.food_type %></td>
+      <td><%= @donation.food_detail %></td>
+      <td><%= @donation.food_weight %></td>
+      <td><%= @donation.money_type %></td>
+      <td><%= @donation.money_amount %></td>
+      <td><%= link_to 'Send Receipt Email', send_receipt_path(@donation) %></td>
+    </tr>
+  </table>
+
+</div>

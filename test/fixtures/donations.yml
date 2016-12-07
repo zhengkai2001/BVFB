@@ -1,29 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  email: MyString
-  address: MyString
-  city: MyString
-  state: MyString
-  zip: 
-  donation_date: 2016-12-03
-  food_type: MyString
-  food_detail: MyString
-  food_weight: 
-  money_type: MyString
-  money_amount: 
-
-two:
-  name: MyString
-  email: MyString
-  address: MyString
-  city: MyString
-  state: MyString
-  zip: 
-  donation_date: 2016-12-03
-  food_type: MyString
-  food_detail: MyString
-  food_weight: 
-  money_type: MyString
-  money_amount: 
+kai:
+  name: Kai
+  email: zkawaken@gmail.com
+  address: 1601 Holleman Dr.
+  city: College Station
+  state: Texas
+  zip: 77840
+  donation_date: 2016-11-05
+  food_type: Food
+  food_detail: Oreo
+  food_weight: 100
+  money_type: Cash
+  money_amount: 50

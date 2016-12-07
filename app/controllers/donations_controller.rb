@@ -24,6 +24,18 @@ class DonationsController < ApplicationController
     end
   end
 
+  def show
+    id = params[:id]
+    @donation = Donation.find(id)
+  end
+
+  def send_receipt
+    id = params[:id]
+    @donation = Donation.find(id)
+
+    DonationMailer.send_receipt(@donation).deliver_now
+  end
+
   private
 
   def donation_params
