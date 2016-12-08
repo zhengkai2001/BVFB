@@ -13,24 +13,33 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when /^the home\s?page$/
-      '/'
+      when /^the home\s?page$/
+        '/'
 
-    # Add more mappings here.
-    # Here is an example that pulls values out of the Regexp:
-    #
-    #   when /^(.*)'s profile page$/i
-    #     user_profile_path(User.find_by_login($1))
+      when /^the donations page for "([^"]*)"$/i
+        '/donations'
 
-    else
-      begin
-        page_name =~ /^the (.*) page$/
-        path_components = $1.split(/\s+/)
-        self.send(path_components.push('path').join('_').to_sym)
-      rescue NoMethodError, ArgumentError
-        raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
-          "Now, go and add a mapping in #{__FILE__}"
-      end
+      when /^the edit page for "([^"]*)"$/i
+        donation = Donation.find_by title: $1
+        edit_movie_path(donation.id)
+
+      when /^the details page for "([^"]*)"$/i
+        donation = Donation.find_by title: $1
+        donation_path(donation.id)
+
+      when /^the director page of "([^"]*)"$/i
+        director = $1
+        director_all_movies_path(director)
+
+      else
+        begin
+          page_name =~ /^the (.*) page$/
+          path_components = $1.split(/\s+/)
+          self.send(path_components.push('path').join('_').to_sym)
+        rescue NoMethodError, ArgumentError
+          raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
+                    "Now, go and add a mapping in #{__FILE__}"
+        end
     end
   end
 end

@@ -4,40 +4,25 @@ require 'database_cleaner'
 DatabaseCleaner.strategy = :truncation
 
 RSpec.describe Donation, type: :model do
-  describe 'Find Movies With Same Director' do
-    movies_data = [
-        {:title => 'Hulk', :director => 'Ang Lee', :rating => 'PG-13', :release_date => '2003-06-20'},
-        {:title => 'Life of Pi', :director => 'Ang Lee', :rating => 'PG', :release_date => '2012-11-22'},
-        {:title => 'The Dark Knight', :director => 'Christopher Nolan', :rating => 'PG-13', :release_date => '2008-07-18'},
-        {:title => 'First Blood', :director => '', :rating => 'R', :release_date => '1982-10-22'}
-    ]
+  donations_data = [
+      {:name => 'Kai Zheng', :email => 'zkawaken@gmail.com', :address => 'tower park', :city => 'Houston', :state => 'Texas', :zip => 77000, :donation_date => '2012-01-09', :food_type => 'Sugar', :food_detail => 'Mentos', :food_weight => '20', :money_type => 'Cash', :money_amount => 200},
+      {:name => 'Mincan He', :email => 'hemincan@outlook.co', :address => 'wolf park', :city => 'Dallas', :state => 'Texas', :zip => 78000, :donation_date => '2016-06-06', :food_type => 'Fruit', :food_detail => 'Banana', :food_weight => '10', :money_type => 'None', :money_amount => 0},
+      {:name => 'Haoran Wang', :email => 'haoranwang@tamu.edu', :address => 'wolf park', :city => 'Austin', :state => 'Texas', :zip => 79000, :donation_date => '2015-10-25', :food_type => 'Meat', :food_detail => 'Pork', :food_weight => 5, :money_type => 'Check', :money_amount => 500}
+  ]
 
-    before :all do
-      DatabaseCleaner.clean
-      movies_data.each do |movie|
-        Movie.create! movie
-      end
+
+  before :all do
+    DatabaseCleaner.clean
+    donations_data.each do |donation|
+      Donation.create! donation
     end
+  end
 
-    context 'the specified movie has director information' do
-      it 'should find movies with same director' do
-        movies = Movie.find_by_director('Ang Lee')
-        expect(movies.length).to eq 2
-      end
-    end
-
-    context 'the specified movie has no director information' do
-      it 'should not find any movies, but return nil' do
-        movies = Movie.find_by_director(nil)
-        expect(movies).to be_nil
-      end
-    end
-
-    context 'a director has no movies at Rotten Potatoes yet' do
-      it 'should not find any movies, but return an empty array' do
-        movies = Movie.find_by_director('Director from Mars')
-        expect(movies).not_to be_nil
-        expect(movies.length).to eq(0)
+  describe "Find Donation by Donor's address" do
+    context 'the specified donation has director information' do
+      it 'should find donations with the specified address' do
+        donations = Donation.where(:address => 'wolf park')
+        expect(donations.length).to eq 2
       end
     end
   end

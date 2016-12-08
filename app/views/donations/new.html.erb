@@ -30,15 +30,19 @@
                   <%= f.text_field :food_detail, class: 'form-control', placeholder: 'OREO' %>
                 </div>
                 <div class="form-group col-md-6">
-                  <%= f.label :money_type %>
-                  <%= f.select(:money_type, %w(None Cash Check)) %>
+                  <%= f.label :food_weight, 'Food weight (lbs)' %>
+                  <%= f.text_field :food_weight, class: 'form-control' %>
                 </div>
               </div>
 
               <div class="row">
                 <div class="form-group col-md-6">
-                  <%= f.label :money_amount %>
+                  <%= f.label :money_amount, 'Money amount (U.S. dollars)' %>
                   <%= f.text_field :money_amount, class: 'form-control' %>
+                </div>
+                <div class="form-group col-md-6">
+                  <%= f.label :money_type %>
+                  <%= f.select(:money_type, %w(None Cash Check)) %>
                 </div>
               </div>
             </div>
