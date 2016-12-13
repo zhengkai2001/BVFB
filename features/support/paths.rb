@@ -13,23 +13,15 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-      when /^the home\s?page$/
-        '/'
+      when /^the home\s?page ([^"]*)$/
+        root_path
 
-      when /^the donations page for "([^"]*)"$/i
+      when /^the donations page ([^"]*)$/i
         '/donations'
 
-      when /^the edit page for "([^"]*)"$/i
-        donation = Donation.find_by title: $1
-        edit_movie_path(donation.id)
-
       when /^the details page for "([^"]*)"$/i
-        donation = Donation.find_by title: $1
+        donation = Donation.find_by name: $1
         donation_path(donation.id)
-
-      when /^the director page of "([^"]*)"$/i
-        director = $1
-        director_all_movies_path(director)
 
       else
         begin
