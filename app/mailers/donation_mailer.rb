@@ -7,6 +7,6 @@ class DonationMailer < ApplicationMailer
   #
   def send_receipt(donation)
     @donation = donation
-    mail to: donation.email, subject: 'Thanks for your donation.'
+    mail to: donation.email, subject: 'Your receipt from Brazos Valley Food Bank.'
   end
 end
