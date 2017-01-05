@@ -10,3 +10,19 @@ donations = [
 donations.each do |donation|
   Donation.create!(donation)
 end
+
+User.create!(name: 'zk',
+             email: 'zk@zk.com',
+             password: 'foobar',
+             password_confirmation: 'foobar',
+             admin: true)
+
+99.times do |n|
+  name = Faker::Name.name
+  email = "example-#{n+1}@bvfb.org"
+  password = 'password'
+  User.create!(name: name,
+               email: email,
+               password: password,
+               password_confirmation: password)
+end

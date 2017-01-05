@@ -14,6 +14,9 @@ gem 'bootstrap-sass'
 gem 'bootstrap-select-rails'
 
 gem 'bcrypt'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 # guard needs this
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
